@@ -1,0 +1,10 @@
+DROP DATABASE IF EXISTS todoapp;
+CREATE DATABASE todoapp;
+
+\c todoapp;
+
+CREATE TABLE item (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR NOT NULL,
+  finished BOOLEAN NOT NULL
+);

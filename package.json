@@ -1,0 +1,26 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "Api en nodejs para todoapp",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevincaicedo/Todoapp-backend.git"
+  },
+  "author": "Kevin Caicedo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevincaicedo/Todoapp-backend/issues"
+  },
+  "homepage": "https://github.com/kevincaicedo/Todoapp-backend#readme",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "express": "^4.16.3",
+    "http-errors": "^1.7.0",
+    "pg-promise": "^8.4.5"
+  }
+}
