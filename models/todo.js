@@ -2,7 +2,8 @@ var promise = require('bluebird');
 
 // Initialization Options
 var postgres = require('pg-promise')({ promiseLib: promise });
-var connect = 'postgres://inalambria:199599@localhost:5432/todoapp';
+var connect = process.env.DATABASE_URL + '?ssl=true';
+//var connect = 'postgres://inalambria:199599@localhost:5432/todoapp';
 var db = postgres(connect, function(err, client, done) {
     if(err)
       return console.error('error fetching client from pool', err);
