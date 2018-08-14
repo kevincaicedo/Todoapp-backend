@@ -32,8 +32,8 @@ function postTodos(req, res, next) {
     name: req.body.name,
     finished: (req.body.finished === 'true'),
   }
-  db.none('INSERT INTO item(name, finished) VALUES(${name}, ${finished})', body).then(function () {
-      res.status(200).json({ info: 'Actividad agregada' });
+  db.result('INSERT INTO item(name, finished) VALUES(${name}, ${finished})', body).then(function (result) {
+      res.status(200).json({ info: 'Actividad agregada', result: result });
   }).catch(function (err) {
       return next(err);
   });
