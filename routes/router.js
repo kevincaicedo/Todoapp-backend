@@ -8,16 +8,16 @@ router.get('/', function(req, res, next) {
   res.json({ version: 1.0, description: 'Api Todoapp inalambria' });
 });
 
-/* GET home page. */
+/* GET all todos. */
 router.get('/todos', dbTodo.getTodos);
 
-/* GET home page. */
+/* Post one todo. */
 router.post('/todos', dbTodo.postTodos);
 
-/* GET home page. */
+/* Put one todo. */
 router.put('/todos/:id', dbTodo.putTodos);
 
-/* GET home page. */
+/* Delete one todo. */
 router.delete('/todos/:id', dbTodo.deleteTodos);
 
 module.exports = router;

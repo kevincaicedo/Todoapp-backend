@@ -62,7 +62,7 @@ function deleteTodos(req, res, next) {
   var id = parseInt(req.params.id);
 
   db.result('delete from item where id = $1', id).then(function (result) {
-      res.status(200).json({ info: `Actividad Eliminada` });
+      res.status(200).json({ info: `Actividad Eliminadas: ${result.rowCount}` });
   }).catch(function (err) {
       return next(err);
   });

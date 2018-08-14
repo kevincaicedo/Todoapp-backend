@@ -2,6 +2,8 @@ var createError = require('http-errors');
 var express = require('express');     // call express
 var http = require('http');
 var router = require('./routes/router');
+var cors = require('cors')
+
 
  // define our app using express
 var app = express();
@@ -12,6 +14,8 @@ var port = process.env.PORT || 8080; // number port
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cors())
 
 // all of our routes will be prefixed with /api
 app.use('/api', router);
