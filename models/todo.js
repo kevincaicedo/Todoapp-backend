@@ -14,7 +14,7 @@ var db = postgres(connect, function(err, client, done) {
 // return state 20 ok and json with data
 function getTodos(req, res, next) {
 
-  db.any('select * from item').then(function (data) {
+  db.any('select * from item ORDER BY id ASC').then(function (data) {
       res.status(200).json({ data: data });
   }).catch(function (err) {
       return next(err);
