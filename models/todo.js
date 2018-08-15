@@ -28,11 +28,7 @@ function getTodos(req, res, next) {
 // @paramas finished boolean
 // return state 20 ok and json info message
 function postTodos(req, res, next) {
-  var body = {
-    name: req.body.name,
-    finished: (req.body.finished === 'true'),
-  }
-  db.one('INSERT INTO item(name, finished) VALUES(${name}, ${finished}) RETURNING id', body).then(data => {
+  db.one('INSERT INTO item(name, finished) VALUES(${name}, ${finished}) RETURNING id', req.body).then(data => {
       res.status(200).json({ info: 'Actividad agregada', data: data.id });
   }).catch(function (err) {
       return next(err);
@@ -47,7 +43,7 @@ function postTodos(req, res, next) {
 function putTodos(req, res, next) {
   var id = parseInt(req.params.id)
 
-  db.none('update item set name=$1, finished=$2 where id=$3', [req.body.name, (req.body.finished === 'true'), id])
+  db.none('update item set name=$1, finished=$2 where id=$3', [req.body.name, req.body.finished, id])
     .then(function () {
         res.status(200).json({ info: 'Actividad Actualizada' });
     }).catch(function (err) {
